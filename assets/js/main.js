@@ -12,10 +12,10 @@ function autoDetect() {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }
-        let coordinates_serialized = JSON.stringify(coordinates);
+        let coordinatesSerialized = JSON.stringify(coordinates);
 
-    localStorage.setItem("coordinates", coordinates_serialized);
-    console.log(coordinates_serialized);
+    localStorage.setItem("coordinates", coordinatesSerialized);
+    // console.log(coordinates_serialized);
     };
     const error = error => {
         console.error(error);
@@ -28,8 +28,8 @@ function userLocation() {
 } 
 
 // Pull lat/long from user storage
-let coordinates_deserializied = JSON.parse(localStorage.getItem("coordinates"));
-console.log(coordinates.latitude);
+let storedCoordinates = (localStorage.getItem('coordinates'));
+console.log(storedCoordinates);
 
 /*
 function getLocation() {
