@@ -1,3 +1,6 @@
+let latitude;
+let longitude;
+
 function getGeoCode(location) {
     const geoCode = `https://geocode.xyz/${location}?json=1`;
     fetch(geoCode)
@@ -23,3 +26,16 @@ function getGeoCode(location) {
     })
 }
 
+// When a button is clicked, set location
+document.querySelector('#find-me').addEventListener('click', autoDetect);
+
+function autoDetect() {
+    const success = position => {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        }
+    const error = error => {
+        console.error(error);
+    };
+    navigator.geolocation.getCurrentPosition(success, console.error);
+}
