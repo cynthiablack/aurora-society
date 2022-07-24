@@ -28,14 +28,39 @@ function getGeoCode(location) {
 
 // When a button is clicked, set location
 document.querySelector('#find-me').addEventListener('click', autoDetect);
+document.querySelector('#submit').addEventListener('click', userLocation);
 
+// Autodectect location
 function autoDetect() {
     const success = position => {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
+        console.log(`${latitude},${longitude}`);
         }
     const error = error => {
         console.error(error);
     };
     navigator.geolocation.getCurrentPosition(success, console.error);
 }
+
+// Use user-entered location
+function userLocation() {
+    let userEntry = document.querySelector('input').value;
+    console.log(userEntry);
+}
+
+
+
+// Pass location data to lat / long
+
+// Get sky cover data
+
+// Get moon phase
+
+// Get hours of darkness
+
+// Get 30 minute aurora forecast
+
+// Get relevant photos
+
+// Put everything in the DOM
