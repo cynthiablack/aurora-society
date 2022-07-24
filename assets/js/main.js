@@ -1,5 +1,6 @@
 let latitude;
 let longitude;
+let userEntry;
 
 function getGeoCode(location) {
     const geoCode = `https://geocode.xyz/${location}?json=1`;
@@ -35,7 +36,8 @@ function autoDetect() {
     const success = position => {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-        console.log(`${latitude},${longitude}`);
+        return latitude;
+        return longitude;
         }
     const error = error => {
         console.error(error);
@@ -45,15 +47,24 @@ function autoDetect() {
 
 // Use user-entered location
 function userLocation() {
-    let userEntry = document.querySelector('input').value;
-    console.log(userEntry);
+    userEntry = document.querySelector('input').value;
+    return userEntry;
 }
 
-
-
-// Pass location data to lat / long
+// Pass location data to get lat / long, location name
+if (localStorage.getItem !== null) {
+    coordinates = JSON.parse(localStorage.getItem('coordinates'));
+    return latitude = coordinates.latitude;
+    return longitude = coordinates.longitude;
+    getGeoCode(`${latitude}, ${longitude}`)
+}
+else if (userEntry !== null) {
+    getGeoCode(userEntry);
+}
 
 // Get sky cover data
+
+
 
 // Get moon phase
 
