@@ -28,83 +28,67 @@
 				<h3>Currently showing data for </h3>
 					<h2 id="location-name">Anchorage International Airport, Anchorage, Alaska, USA</span></h2><br>
 				<h2>Update Location</h2>
-				<form>
 					<p class="larger">Click <span class="uppercase">detect my location</span> to automatically update the page. <br>
-						Enter your ZIP code or postal code and click <span class="uppercase">submit</span> to show data for your location.</p><br>
-					<input type="text" title="location" placeholder="Enter your zip code or postal code"></input><br>
+						Enter your ZIP code, postal code, or location name and click <span class="uppercase">submit</span> to show data for your location.</p><br>
+					<input type="text" title="location" placeholder="Location"></input>
 					<button class="uppercase" id="submit">Submit</button>  
-				</form>
-				<button id="find-me" class="uppercase">Detect my location</button>
-				
 			</section>
-			<section>
-				<div id="data">
+			<section id="data">
 					<h2>Are the Lights out?</h2>
-				<div class="container">
-					<div class="led-box">
-						<div class="led-green"></div>
-					  <p>likely</p>
-					</div>
-					<div class="led-box">
-						<div class="led-red"></div>
-						<p>not likely</p>
-					  </div>
-				</div>
-				<h2>Aurora Viewing Conditions</h2>
-				<article class="columns">
-					<img src="https://via.placeholder.com/200x100">
-					<h3>Visibility</h3>
-					<p>Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat portitor ligula, egat lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Morbi leo risis, porta ac consectetur ac, vestibulum at eros.</p>
-					<a href="http://levelgroundmma.org/gym">
-					</a>
-				</article>
-				<article class="columns">
-					<img src="https://via.placeholder.com/200x100">
+				<article>
+					<img src="" alt="" id="aurora-image">
 					<h3>30 Minute Forecast</h3>
-					<p>Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat portitor ligula, egat lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Morbi leo risis, porta ac consectetur ac, vestibulum at eros.</p>
-					<a href="http://levelgroundmma.org/gym">
-					</a>
+				</article>
+				<h2 class="space-before">Aurora Viewing Conditions</h2>
+				<article class="columns">
+					<img src="" alt="" id="weather-image">
+					<h3>Cloud Cover</h3>
+					<ul>
+						<li id="cloud-cover"></li>
+						<li id="visibility"></li>
+					</ul>
 				</article>
 				<article class="columns">
-					<img src="https://via.placeholder.com/200x100">
+				</article>
+				<article class="columns">
+					<img src="" alt="" id="moon-image">
 					<h3>Moon Phase</h3>
-					<p>Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-					<a href="http://levelgroundmma.org/hire-us">
-					</a>
+					<ul>
+						<li id="moon-phase"></li>
+						<li id="moon-brightness"></li>
+						<li id="moonrise"></li>
+					</ul>
 				</article>
 				<article class="columns">
-					<img src="https://via.placeholder.com/200x100">
+					<img src="images/moon.png">
 					<h3>Hours of Darkness</h3>
-					<p>Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat portitor ligula, egat lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Morbi leo risis, porta ac consectetur ac, vestibulum at eros.</p>
-					<a href="http://levelgroundmma.org/gym">
-					</a>
+					<ul>
+						<li id="sunset"></li>
+						<li id="sunrise"></li>
+						<li id="night-length"></li>
+					</ul>
 				</article>
 				<div class="clear"></div>
 				</div>
 			</section>
 			<section class="bottom clear">
 				<p class="larger">
-					Welcome to Anchorage's least organized group of amateur aurora hunters and space weather enthusiasts.
-				</p>
-				<p class="clear larger">Site data defaults to Anchorage International Airport in Anchorage, AK, USA<br>
+					This site maintained by Anchorage Aurora Society, a loosely-organized group of amateur aurora hunters and space weather enthusiasts.
+				<br>Site data defaults to Anchorage International Airport in Anchorage, AK, USA</p>
 					This site is set up with two options to update </p>
 					<p>This site is set up to </p>
-				<h2>Volunteer with level ground</h2>
-				<p>Aeanean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-				<a href="https://forms.gle/SY1tWXjW6eEj3iLt7">
-				</a>
 			</section>
 		</main>
 		<footer>
 				<p>This site uses data from the following public APIs and does so in accordance with their respective licenses.</p>
 				<ul>
-					<li><a href="https://www.weather.gov/documentation/services-web-api">National Weather Service</a></li>
 					<li><a href="https://www.swpc.noaa.gov/content/data-access">National Oceanic and Atmospheric Association Space Weather Predication Center</a></li>
-					<li><a href="https://api.nasa.gov">National Aeronatics and Space Administration</a></li>
+					<li><a href="https://www.weatherapi.com/">Weather API</a></li>
 					<li><a href="https://geocode.xyz">Geocode.xyz</a></li>
 				</ul>
 			</section>
 		</footer>
+		<script type="text/javascript" src="assets/js/userinput.js"></script>
 		<script type="text/javascript" src="assets/js/main.js"></script>
 	</body>
 </html>

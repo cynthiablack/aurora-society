@@ -1,13 +1,43 @@
-document.addEventListener('DOMContentLoaded', getWeather);
-document.addEventListener('DOMContentLoaded', getAstronomy);
-// Default location is Anchorage International Aiport
+// When a button is clicked, set location
+document.querySelector('#submit').addEventListener('click', findUserLocation);
+document.querySelector('#submit').addEventListener('click', getWeather);
+document.querySelector('#submit').addEventListener('click', getAstronomy);
 
-// Show Northern Hemisphere aurora forecast
-document.querySelector('#aurora-image').src = 'https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg';
+// Use user-entered location
+    function findUserLocation(){
+      const userEntry = document.querySelector('input').value
+      const geoCode = `https://geocode.xyz/${userEntry}?json=1`
+      fetch(geoCode)
+          .then(res => res.json()) // parse response as JSON
+          .then(data => {
+
+          // Get location name & print to DOM
+            let city = data.standard.city;
+            let state = data.standard.statename;
+            let prov = data.standard.prov;
+           document.querySelector('#location-name').innerText = `${city}, ${state}, ${prov}`;
+
+           // Get & store lat, long
+            let lattitude = data.latt;
+            let longitude = data.longt;
+
+                  // Get 30 minute aurora forecast
+                        if (lattitude < 0) {
+                          document.querySelector('#aurora-image').src = 'https://services.swpc.noaa.gov/images/animations/ovation/south/latest.jpg'
+                        }
+                        else {
+                          document.querySelector('#aurora-image').src = 'https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg'
+                        }
+            })
+            .catch(err => {
+              console.log(`GeoCode error ${err}`)
+        })
+    }
 
             // Update sky cover data based on new location
             function getWeather() {
-              const weather = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=61.1713,-149.9912&aqi=no`;
+              const userEntry = document.querySelector('input').value;
+              const weather = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${userEntry}&aqi=no`;
 
               fetch(weather)
               .then(res => res.json()) // parse response as JSON
@@ -40,7 +70,7 @@ document.querySelector('#aurora-image').src = 'https://services.swpc.noaa.gov/im
             function getAstronomy() {
               const today = new Date();
               const userEntry = document.querySelector('input').value;
-              const astronomy = `http://api.weatherapi.com/v1/astronomy.json?key=${WEATHER_API_KEY}&q=61.1713,-149.9912&dt=${today}`
+              const astronomy = `http://api.weatherapi.com/v1/astronomy.json?key=${WEATHER_API_KEY}&q=${userEntry}&dt=${today}`
 
               fetch(astronomy)
               .then(res => res.json()) // parse response as JSON
