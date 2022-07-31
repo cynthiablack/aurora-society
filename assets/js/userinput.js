@@ -1,3 +1,6 @@
+let lattitude;
+let longitude;
+
 // When a button is clicked, set location
 document.querySelector('#submit').addEventListener('click', findUserLocation);
 document.querySelector('#submit').addEventListener('click', getWeather);
@@ -18,8 +21,8 @@ document.querySelector('#submit').addEventListener('click', getAstronomy);
            document.querySelector('#location-name').innerText = `${city}, ${state}, ${prov}`;
 
            // Get & store lat, long
-            let lattitude = data.latt;
-            let longitude = data.longt;
+            lattitude = data.latt;
+            longitude = data.longt;
 
                   // Get 30 minute aurora forecast
                         if (lattitude < 0) {
@@ -45,21 +48,23 @@ document.querySelector('#submit').addEventListener('click', getAstronomy);
 
                 // Put cloud cover data in DOM
                 document.querySelector('#cloud-cover').innerText = `${data.current.cloud}%`;
-                document.querySelector(`#visibility`).innerText = `Visibility: ${data.current.visibility} miles`;
+                if (data.current.visibility !== undefined) {
+                  document.querySelector(`#visibility`).innerText = `Visibility: ${data.current.visibility} miles`;
+                }
 
               // Put relevant weather photos in DOM
-                if (data.current.condition.text.includes('rain')) {
-                  document.querySelector('#weather-image').src = 'images/raining.png';
+              if (data.current.condition.text.toLowerCase().includes('rain') || data.current.condition.text.toLowerCase().includes('drizzle') ) {
+                document.querySelector('#weather-image').src = 'images/raining.png';
+              }
+              else if (data.current.condition.text.toLowerCase().includes('snow') || data.current.condition.text.toLowerCase().includes('blizzard') || data.current.condition.text.includes('sleet') ) {
+                document.querySelector('#weather-image').src = 'images/snowing.png';
+              }
+              else if (data.current.condition.text.toLowerCase().includes('overcast') || data.current.condition.text.toLowerCase().includes('cloud')) {
+                document.querySelector('#weather-image').src = 'images/clouds.png';
+              }
+              else if (data.current.condition.text.toLowerCase().includes('sunny')) {
+                document.querySelector('#weather-image').src = 'images/sun.png';
                 }
-                else if (data.current.condition.text.includes('snow')) {
-                  document.querySelector('#weather-image').src = 'images/snowing.png';
-                }
-                else if (data.current.condition.text.includes('overcast')) {
-                  document.querySelector('#weather-image').src = 'images/clouds.png';
-                }
-                else if (data.current.condition.text.includes('sunny')) {
-                  document.querySelector('#weather-image').src = 'images/sun.png';
-                  }
               })
               .catch(err => {
                 console.log(`Weather error ${err}`)

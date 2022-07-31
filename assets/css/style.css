@@ -41,8 +41,8 @@ article {
   width: 80%;
 }
 
-article > image {
-  width: 100%;
+#aurora-image {
+  width: 40vw;
 }
 
 button {
@@ -80,7 +80,7 @@ footer {
   text-align: center;
 }
 
-img {
+.icon {
   width: 30%;
 }
 
@@ -166,43 +166,38 @@ p {
 }
 
 /******************************************
+/* iOS Hack to Fix Button Event Listener Not Firing
+/*******************************************/
+.is-ios * {
+  cursor: pointer;
+}
+
+/******************************************
 /* MEDIA QUERIES
 /*******************************************/
-/*
-@media all and (max-width: 300px) {
+@media all and (max-width: 600px) {
+  #aurora-image {
+    width: 50vw;
+  }
+}
+
+@media all and (max-width: 800px) {
+  article, 
+  .columns {
+    float: none;
+    padding-bottom: 2vh;
+    width: 100%;
+  }
+
+  button {
+    width: 20%;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
   img {
-    max-width: 25%;
-    float: left;
+    width: 20%;
   }
 }
-
-@media (min-width: 300px) and (max-width: 700px) {
-  .columns {
-    padding-top: 20px;
-  }
-
-  .status {
-    padding: 20px;
-  }
-}
-
-@media all and (min-width: 700px) {
-  .bottom {
-    clear: both;
-  }
-
-  .columns {
-    float: left;
-    max-width: 50%;
-    padding: 20px 50px;
-  }
-
-  header {
-    min-height: 50px;
-  }
-
-  .status {
-    margin: 0 200px;
-  }
-}
-*/

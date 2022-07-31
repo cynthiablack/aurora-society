@@ -15,19 +15,21 @@ document.querySelector('#aurora-image').src = 'https://services.swpc.noaa.gov/im
 
                 // Put cloud cover data in DOM
                 document.querySelector('#cloud-cover').innerText = `${data.current.cloud}%`;
-                document.querySelector(`#visibility`).innerText = `Visibility: ${data.current.visibility} miles`;
+                if (data.current.visibility !== undefined) {
+                  document.querySelector(`#visibility`).innerText = `Visibility: ${data.current.visibility} miles`;
+                }
 
               // Put relevant weather photos in DOM
-                if (data.current.condition.text.includes('rain')) {
+                if (data.current.condition.text.toLowerCase().includes('rain') || data.current.condition.text.toLowerCase().includes('drizzle') ) {
                   document.querySelector('#weather-image').src = 'images/raining.png';
                 }
-                else if (data.current.condition.text.includes('snow')) {
+                else if (data.current.condition.text.toLowerCase().includes('snow') || data.current.condition.text.toLowerCase().includes('blizzard') || data.current.condition.text.includes('sleet') ) {
                   document.querySelector('#weather-image').src = 'images/snowing.png';
                 }
-                else if (data.current.condition.text.includes('overcast')) {
+                else if (data.current.condition.text.toLowerCase().includes('overcast') || data.current.condition.text.toLowerCase().includes('cloud')) {
                   document.querySelector('#weather-image').src = 'images/clouds.png';
                 }
-                else if (data.current.condition.text.includes('sunny')) {
+                else if (data.current.condition.text.toLowerCase().includes('sunny')) {
                   document.querySelector('#weather-image').src = 'images/sun.png';
                   }
               })
