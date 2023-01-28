@@ -1,5 +1,4 @@
 # Anchorage Aurora Society site
-
 Site allows users to quickly access information about conditions for aurora viewing. Incorporates JSON data from NOAA, WeatherAPI, and GeoCode APIs.
 
 **Link to project:** https://anchorageaurora.netlify.app/
@@ -7,6 +6,7 @@ Site allows users to quickly access information about conditions for aurora view
 ![Site Preview Image](https://github.com/cynthiablack/aurora-society/blob/main/anchorageaurora.png)
 
 ## How It's Made:
+
 
 **Tech used:** HTML, CSS, JavaScript, React
 
