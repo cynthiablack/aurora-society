@@ -1,0 +1,67 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 100;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+:root {
+  /* background-color: #16161a;
+  color: #fffffe; */
+  background-color: #202542; 
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+} 
+
+/*
+ * react-circular-progressbar styles
+ */
+
+ .CircularProgressbar {
+  /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   */
+  width: 30%;
+  /*
+   * This fixes a centering issue with CircularProgressbarWithChildren:
+   * https://github.com/kevinsqi/react-circular-progressbar/issues/94
+   */
+  vertical-align: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #01E0FF; 
+  stroke-linecap: round;
+}
+
+/* Path Colors */
+.CircularProgressbar.CircularProgressbar-orange .CircularProgressbar-path {
+  stroke: #ff9200;
+}
+
+.CircularProgressbar.CircularProgressbar-purple .CircularProgressbar-path {
+  stroke: #6B33D2;
+}
+
+.CircularProgressbar.CircularProgressbar-pink .CircularProgressbar-path {
+  stroke: #FF0ACE; 
+ } 
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #ffff;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #ffff;
+  font-size: 20px;
+   dominant-baseline: middle; 
+  text-anchor: middle;
+}
