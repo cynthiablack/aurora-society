@@ -38,6 +38,7 @@ document.querySelector('#submit').addEventListener('click', getAstronomy);
     }
 
             // Update sky cover data based on new location
+            
             function getWeather() {
               const userEntry = document.querySelector('input').value;
               const weather = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${userEntry}&aqi=no`;
