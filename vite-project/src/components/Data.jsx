@@ -9,11 +9,7 @@ function Data(props) {
             <CircularProgressbar
                 value={percentage}
                 text={`${percentage}%`}
-                styles={{
-                    path: {
-                        stroke: `{props.color}`
-                    }
-                }}
+                className={props.color}
             />
             <div className="data--text">
                 <h3>Data Title</h3>
