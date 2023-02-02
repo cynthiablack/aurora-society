@@ -12,10 +12,9 @@ nav {
 }
 
 .nav--search--container {
-  margin-right: 3vw;
+  margin-right: 0;
   margin-left: auto;
   position: relative;
-  top: -2vh;
 }
 
 .nav--icon {
@@ -34,16 +33,23 @@ main {
 
 input {
   min-height: 4vh;
-  width: 60%;
+  width: 52%;
   border-radius: 12px 0 0 12px;
 }
 
-button {
+.form--button {
   border: 1px solid transparent;
+  border-radius: 0 12px 12px 0;
+  background-color: #0d0f1b;
+  color: #ffff;
   cursor: pointer;
+
+  min-height: 3.5vh;
   position: relative;
-  top: 1.25rem;
-  right: 0.5rem;
+  top: -1.85rem;
+  right: -3.25rem;
+
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 800px) {
@@ -83,6 +89,13 @@ h3 {
 p {
   font-size: 12px;
   padding-top: 4%;
+}
+
+.form--input--label {
+  font-size: 0.75rem;
+  position: relative;
+  top: 2rem;
+  right: 7.5rem;
 }
 
 /** Graphics **/
