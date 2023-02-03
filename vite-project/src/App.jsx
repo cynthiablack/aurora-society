@@ -10,8 +10,9 @@ export default function App() {
             latitude: 61.1713,
             longitude: -149.9912,
             city: "Anchorage International Airport, Anchorage",
-            stateName: "Alaska, USA",
-            provName: ""
+            stateName: "Alaska",
+            provName: "",
+            country: "USA"
         }
     )
 
@@ -51,7 +52,14 @@ export default function App() {
             <button className="form--button">Submit</button> 
           </form>
         </header>
-        <Main />
+        <Main 
+          city={locationData.city}
+          state={locationData.stateName}
+          province={locationData.provName}
+          country={locationData.country}
+          latitude={locationData.latitude}
+          longitude={locationData.longitude}
+        />
       </>
     )
 }
