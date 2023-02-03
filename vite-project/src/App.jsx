@@ -1,25 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from "react"
+import Main from "./components/Main"
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  // get postal code from user
+    const [locationData, setLocationData] = React.useState(
+        {
+            postalCode: "",
+            latitude: 61.1713,
+            longitude: -149.9912,
+            city: "Anchorage International Airport, Anchorage",
+            stateName: "Alaska, USA",
+            provName: ""
+        }
+    )
 
-  return (
-    <div className="App">
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    // form handling
+    function handleChange(event) {
+        setLocationData(prevLocationData => {
+            return {
+                ...prevLocationData,
+                [event.target.name]: event.target.value
+            }
+        })
+    }
+
+    // get location data from Geocode API
+    function handleSubmit(event) {
+      event.preventDefault()
+      console.log("Fetching data")
+      fetch(`https://geocode.xyz/${locationData.postalCode}?json=1`)
+          .then(res => res.json())
+          .then(data => console.log(data))
+    }
+
+    // component body
+    return (
+      <>
+        <header>
+          <h2 className="header--title">Anchorage Aurora Society</h2>
+          <form className="header--search--container" onSubmit={handleSubmit}>
+            <input
+              type="text" 
+              placeholder="Enter a postal code"
+              name="postalCode"
+              onChange={handleChange}
+              value={locationData.postalCode}
+            />
+            <label htmlFor="postalCode" className="form--input--label">Enter a location</label>
+            <button className="form--button">Submit</button> 
+          </form>
+        </header>
+        <Main />
+      </>
+    )
 }
-
-export default App
