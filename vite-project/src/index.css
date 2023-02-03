@@ -98,6 +98,10 @@ p {
   right: 7.5rem;
 }
 
+.location--name {
+  text-transform: capitalize;
+}
+
 /** Graphics **/
 .data--contents {
   margin-top: 2vh;

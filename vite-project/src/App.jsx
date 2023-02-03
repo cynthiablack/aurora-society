@@ -10,8 +10,7 @@ export default function App() {
             latitude: 61.1713,
             longitude: -149.9912,
             city: "Anchorage International Airport, Anchorage",
-            stateName: "Alaska",
-            provName: "",
+            state: "Alaska",
             country: "USA"
         }
     )
@@ -29,10 +28,17 @@ export default function App() {
     // get location data from Geocode API
     function handleSubmit(event) {
       event.preventDefault()
-      console.log("Fetching data")
       fetch(`https://geocode.xyz/${locationData.postalCode}?json=1`)
           .then(res => res.json())
-          .then(data => console.log(data))
+          .then(data => setLocationData(prevLocationData => ({
+            ...prevLocationData,
+            city: data.standard.city.toLowerCase(),
+            state: data.standard.statename,
+            country: data.standard.countryname,
+            latitude: data.latt,
+            longitude: data.longt
+          })
+      ))
     }
 
     // component body
@@ -54,8 +60,7 @@ export default function App() {
         </header>
         <Main 
           city={locationData.city}
-          state={locationData.stateName}
-          province={locationData.provName}
+          state={locationData.state}
           country={locationData.country}
           latitude={locationData.latitude}
           longitude={locationData.longitude}

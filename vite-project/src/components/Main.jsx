@@ -25,7 +25,7 @@ export default function Main(props) {
             </section>
             <section id="status">
                 <h3 className="location--label">Currently showing data for </h3>
-                <h2 id="location-name">{props.city}, {props.state || props.province}, {props.country}</h2>
+                <h2 className="location--name">{props.city}, {props.state || props.province}, {props.country}</h2>
             </section>
         </main>
     )
