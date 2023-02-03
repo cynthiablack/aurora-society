@@ -2,8 +2,13 @@ import React from "react"
 import Data from "./Data"
 import { CircularProgressbar } from 'react-circular-progressbar'; // delete me!
 
-export default function Main() {
-    
+export default function Main(props) {
+    let city = props.city,
+    stateName = props.stateName,
+    province = props.provName,
+    lattitude = props.lattitude,
+    longitude = props.longitude
+
     return (
         <main>
             <section id="data" className="data--container">
@@ -26,7 +31,7 @@ export default function Main() {
             </section>
             <section id="status">
                 <h3 className="location--label">Currently showing data for </h3>
-                <h2 id="location-name">Anchorage International Airport, Anchorage, Alaska, USA</h2>
+                <h2 id="location-name">{city}, {stateName} {province}</h2>
             </section>
         </main>
     )
