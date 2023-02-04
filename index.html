@@ -1,92 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	  	<meta charset="utf-8">
-  		<meta name="description" content="Anchorage Aurora Society is a social group of amateur aurora hunters and space weather enthusiasts">
-  		<meta name="keywords" content="aurora borealis, northern lights, aurora hunting, aurora hunters, space weather, hobby astronomy">
-		<meta name="viewport" content="width=device-width", initial-scale=1>
-	
-		<title>Anchorage Aurora Society</title>
-
-		<!-- external links -->
-		<link rel="stylesheet" href="assets/css/normalize.css">
-		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com"> 
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-		<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-
-	</head>
-	<body>
-		<!-- <div class="top"> -->
-		<header class="top">
-			<h1>Anchorage Aurora Society</h1>
-			<h2>Est. 1998</h2>
-		</header>
-		<main>
-		<!-- </div> -->
-			<section id="status">
-				<h3>Currently showing data for </h3>
-					<h2 id="location-name">Anchorage International Airport, Anchorage, Alaska, USA</span></h2><br>
-				<!--<h2>Update Location</h2>-->
-					<p class="larger"><!--Click <span class="uppercase">detect my location</span> to automatically update the page. <br>-->
-						Enter your ZIP code, postal code, or location name and click <span class="uppercase">submit</span> to show data for your location.</p><br>
-					<input type="text" title="location" placeholder="Location"></input>
-					<button class="uppercase" id="submit">Submit</button>  
-			</section>
-			<section id="data">
-					<h2>Are the Lights out?</h2>
-				<article>
-					<img src="" alt="" id="aurora-image">
-					<h3>30 Minute Forecast</h3>
-				</article>
-				<h2 class="space-before">Aurora Viewing Conditions</h2>
-				<article class="columns">
-					<img src="" alt="" id="weather-image" class="icon">
-					<h3>Cloud Cover</h3>
-					<ul>
-						<li id="cloud-cover"></li>
-						<li id="visibility"></li>
-					</ul>
-				</article>
-				<article class="columns">
-				</article>
-				<article class="columns">
-					<img src="" alt="" id="moon-image" class="icon">
-					<h3>Moon Phase</h3>
-					<ul>
-						<li id="moon-phase"></li>
-						<li id="moon-brightness"></li>
-						<li id="moonrise"></li>
-					</ul>
-				</article>
-				<article class="columns">
-					<img src="images/moon.png" class="icon">
-					<h3>Hours of Darkness</h3>
-					<ul>
-						<li id="sunset"></li>
-						<li id="sunrise"></li>
-						<li id="night-length"></li>
-					</ul>
-				</article>
-				<div class="clear"></div>
-				</div>
-			</section>
-			<section class="bottom clear">
-				<p>
-					This site maintained by Anchorage Aurora Society, a loosely-organized group of amateur aurora hunters and space weather enthusiasts.
-				<br>Site data defaults to Anchorage International Airport in Anchorage, AK, USA</p>
-			</section>
-		</main>
-		<footer>
-				<p>This site uses data from the following public APIs and does so in accordance with their respective licenses.</p>
-				<ul>
-					<li><a href="https://www.swpc.noaa.gov/content/data-access">National Oceanic and Atmospheric Association Space Weather Predication Center</a></li>
-					<li><a href="https://www.weatherapi.com/">Weather API</a></li>
-					<li><a href="https://geocode.xyz">Geocode.xyz</a></li>
-				</ul>
-			</section>
-		</footer>
-		<script type="text/javascript" src="assets/js/userinput.js"></script>
-		<script type="text/javascript" src="assets/js/main.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anchorage Aurora Society</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
