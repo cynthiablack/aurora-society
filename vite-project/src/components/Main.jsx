@@ -47,7 +47,7 @@ export default function Main(props) {
                     color="CircularProgressbar-pink"
                 />
                 <Data
-                    title="title"
+                    title="Cloud Cover"
                     value={51}
                     maxValue={100}
                     color="CircularProgressbar-purple"
