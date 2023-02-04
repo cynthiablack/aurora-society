@@ -103,6 +103,18 @@ p {
 }
 
 /** Graphics **/
+.aurora--map {
+  margin: auto 0;
+  width: 75%;
+}
+
+.aurora--map--container {
+  border-radius: 50px;
+  background: #202542;
+  box-shadow: inset 35px 35px 20px #0d0f1b,
+              inset -35px -35px 20px #333b69;
+}
+
 .data--contents {
   margin-top: 2vh;
   padding: 4% 6% 4% 4%;
