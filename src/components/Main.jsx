@@ -5,6 +5,12 @@ import PercentageData from "./PercentageData"
 export default function Main(props) {
     const latitude = props.latitude
     const longitude = props.longitude
+    const getDate = new Date()
+    const today = getDate.toLocaleTimeString([], { hour12: false, hour: "2-digit", minute: "2-digit" })
+    const currentHour = +today.slice(0,2)
+    const currentMinutes = +today.slice(3,5)
+    const sunriseHour = +props.sunrise.slice(0,2)
+    const sunsetHour = +props.sunset.slice(0,2) + 12
 
     return (
         <main>
@@ -35,12 +41,13 @@ export default function Main(props) {
                     additionalData={props.moon_phase}
                     color="CircularProgressbar-orange"
                 />
-                {/* <Data 
-                    title="Night Length"
-                    value={earthWeather.sunrise}
-                    maxValue={12}
+                <Data 
+                    title={+sunsetHour > +currentHour ? 'Sunset In' : 'Sunrise At'}
+                    additionalData={+sunsetHour > +currentHour ? props.sunset : props.sunrise}
+                    value={`${+sunsetHour > +currentHour ? +currentHour - +sunsetHour : (24 - +currentHour) + +sunriseHour} hrs`}
+                    maxValue={(24 - +sunsetHour) + +sunriseHour}
                     color="CircularProgressbar-purple"
-                /> */}
+                />
 
             </section>
             <section id="status">
