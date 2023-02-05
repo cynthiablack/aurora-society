@@ -44,8 +44,8 @@ export default function Main(props) {
                 <Data 
                     title={+sunsetHour > +currentHour ? 'Sunset In' : 'Sunrise At'}
                     additionalData={+sunsetHour > +currentHour ? props.sunset : props.sunrise}
-                    value={`${+sunsetHour > +currentHour ? +currentHour - +sunsetHour : (24 - +currentHour) + +sunriseHour} hrs`}
-                    maxValue={(24 - +sunsetHour) + +sunriseHour}
+                    value={`${+sunsetHour > +currentHour ? +sunsetHour - +currentHour : (24 - +currentHour) + +sunriseHour} hrs`}
+                    maxValue={+sunsetHour > +currentHour ? (+sunsetHour - +sunriseHour) : (24 - +sunsetHour) + +sunriseHour}
                     color="CircularProgressbar-purple"
                 />
 
