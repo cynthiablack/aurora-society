@@ -70,6 +70,7 @@ section {
 .header--title {
   font-size: 0.85rem;
   text-align: left;
+  text-transform: capitalize;
 }
 
 h2 {
@@ -79,11 +80,6 @@ h2 {
 h3 {
   text-transform: uppercase;
   font-weight: 900;
-}
-
-.location--label {
-  font-size: 14px;
-  font-weight: 600;
 }
 
 p {
@@ -98,8 +94,8 @@ p {
   right: 7.5rem;
 }
 
-.location--name {
-  text-transform: capitalize;
+.not--capitalized {
+  text-transform: lowercase;
 }
 
 /** Graphics **/

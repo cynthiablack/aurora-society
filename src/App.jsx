@@ -97,7 +97,7 @@ export default function App() {
     return (
       <>
         <header>
-          <h2 className="header--title">Anchorage Aurora Society</h2>
+          <h2 className="header--title">{!locationData.postalCode ? 'Anchorage Aurora Society' : locationData.city + ', ' +  locationData.state + ', ' + locationData.country}<br></br><span className="not--capitalized"> forecast</span></h2>
           <form className="header--search--container" onSubmit={handleSubmit}>
             <input
               type="text" 
@@ -106,7 +106,7 @@ export default function App() {
               onChange={handleChange}
               value={locationData.postalCode}
             />
-            <label htmlFor="postalCode" className="form--input--label">Enter a location</label>
+            <label htmlFor="postalCode" className="form--input--label">Enter location</label>
             <button className="form--button">Submit</button> 
           </form>
         </header>
