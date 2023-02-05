@@ -104,6 +104,8 @@ p {
 
 /** Graphics **/
 .aurora--map {
+  border-radius: 50px;
+
   margin: auto 0;
   width: 75%;
 }
