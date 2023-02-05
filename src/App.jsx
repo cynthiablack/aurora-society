@@ -41,6 +41,98 @@ export default function App() {
       ))
     }
 
+        // get space weather data from NOAA
+        const [spaceWeather, setSpaceWeather] = React.useState(
+          {
+              kp: 0,
+          }
+      )
+
+      React.useEffect(() => {
+        fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json')
+            .then(res => res.json())
+            .then(data => 
+                setSpaceWeather(prevSpaceWeather => ({
+                ...prevSpaceWeather,
+                kp: data[data.length - 1].kp_index
+          })
+        ))
+     }, [])
+
+     // get earth weather data from WeatherAPI.com
+    const [earthWeather, setEarthWeather] = React.useState(
+      {
+          cloud: 0,
+          condition: "",
+          moon_phase: "",
+          moon_illumination: "",
+          sunrise: "",
+          sunset: "",
+      }
+  )
+
+  React.useEffect(() => {
+      fetch(`http://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationData.latitude},${locationData.longitude}&aqi=no`)
+          .then(res => res.json())
+          .then(data => setEarthWeather(prevEarthWeather => ({
+              ...prevEarthWeather,
+              cloud: data.current.cloud,
+              condition: data.current.condition.text,
+        })
+      ))
+      .then(fetch(`http://api.weatherapi.com/v1/astronomy.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationData.latitude},${locationData.longitude}&aqi=no`)
+      .then(res => res.json())
+      .then(data => setEarthWeather(prevEarthWeather => ({
+        ...prevEarthWeather,
+        moon_phase: data.astronomy.astro.moon_phase,
+        moon_illumination: data.astronomy.astro.moon_illumination,
+        sunrise: data.astronomy.astro.sunrise,
+        sunset: data.astronomy.astro.sunset
+      })
+      ))
+      )
+   }, [locationData.latitude])
+
+    //  React.useEffect(() => {
+    //     fetch(`http://api.weatherapi.com/v1/astronomy.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationData.latitude},${locationData.longitude}&aqi=no`)
+    //         .then(res => res.json())
+            // .then(data => setEarthWeather(prevEarthWeather => ({
+            //     ...prevEarthWeather,
+            //     moon_phase: data.astronomy.astro.moon_phase,
+            //     moon_illumination: data.astronomy.astro.moon_illumination,
+            //     sunrise: data.astronomy.astro.sunrise,
+            //     sunset: data.astronomy.astro.sunset
+    //       }, [locationData.latitude])
+    //     ))
+    //   })
+
+
+          // Calculate the time between sunset and sunrise
+    // function calculateNightLength() {
+        // let sunsetHour = earthWeather.sunset.slice(0,2).join('')
+        // let sunsetMinute = earthWeather.sunset.slice(3,5).join('')
+        // let sunriseHour = earthWeather.sunrise.slice(0,2).join('')
+        // let sunriseMinute = earthWeather.sunrise.slice(3,5).join('')
+
+        // if (earthWeather.sunset.includes('AM')) {
+        //     setEarthWeather(prevEarthWeather => ({
+        //         ...prevEarthWeather,
+        //         elapsedHours: +sunriseHour - 1,
+        //         elapsedMinutes: ((60 - +sunsetMinute) + (+sunriseMinute))
+        //     }))
+        // } 
+        // else {
+        //     setEarthWeather(prevEarthWeather => ({
+        //         ...prevEarthWeather,
+        //         elapsedHours: ((12 - +sunsetHour) + (+sunriseHour)),
+        //         elapsedMinutes: ((60 - +sunsetMinute) + (+sunriseMinute))
+        //     }))
+        // }
+    // }
+    //     ))
+    //  }, [])
+
+
     // component body
     return (
       <>
@@ -64,6 +156,11 @@ export default function App() {
           country={locationData.country}
           latitude={locationData.latitude}
           longitude={locationData.longitude}
+          kp={spaceWeather.kp}
+          cloud={earthWeather.cloud}
+          condition={earthWeather.condition}
+          moon_phase={earthWeather.moon_phase}
+          moon_illumination={earthWeather.moon_illumination}
         />
       </>
     )
