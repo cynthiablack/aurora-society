@@ -72,7 +72,7 @@ export default function App() {
   )
 
   React.useEffect(() => {
-      fetch(`http://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationData.latitude},${locationData.longitude}&aqi=no`)
+      fetch(`https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationData.latitude},${locationData.longitude}&aqi=no`)
           .then(res => res.json())
           .then(data => setEarthWeather(prevEarthWeather => ({
               ...prevEarthWeather,
@@ -80,7 +80,7 @@ export default function App() {
               condition: data.current.condition.text,
         })
       ))
-      .then(fetch(`http://api.weatherapi.com/v1/astronomy.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationData.latitude},${locationData.longitude}&aqi=no`)
+      .then(fetch(`https://api.weatherapi.com/v1/astronomy.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${locationData.latitude},${locationData.longitude}&aqi=no`)
       .then(res => res.json())
       .then(data => setEarthWeather(prevEarthWeather => ({
         ...prevEarthWeather,
