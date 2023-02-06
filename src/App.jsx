@@ -96,18 +96,21 @@ export default function App() {
     // component body
     return (
       <>
-        <header>
-          <h2 className="header--title">{!locationData.postalCode ? 'Anchorage Aurora Society' : locationData.city + ', ' +  locationData.state + ', ' + locationData.country}<br></br><span className="not--capitalized"> forecast</span></h2>
-          <form className="header--search--container" onSubmit={handleSubmit}>
+        <header className="header-grid">
+          <h2 className="header-title">{!locationData.postalCode ? 'Anchorage Aurora Society' : 'Forecast for ' + locationData.city.slice(0,1).toLocaleUpperCase() + locationData.city.slice(1) + ', ' +  locationData.state + ', ' + locationData.country}<br /></h2>
+          <form className="header-form" onSubmit={handleSubmit}>
+            <label htmlFor="postalCode" className="header-form-input-label">Enter location</label>
+            <div className="input-container">
             <input
               type="text" 
               placeholder="Enter a postal code"
               name="postalCode"
               onChange={handleChange}
               value={locationData.postalCode}
+              className="header-form-input"
             />
-            <label htmlFor="postalCode" className="form--input--label">Enter location</label>
-            <button className="form--button">Submit</button> 
+            <button className="header-form-button">Submit</button> 
+            </div>
           </form>
         </header>
         <Main 
