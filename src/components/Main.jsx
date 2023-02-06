@@ -14,12 +14,12 @@ export default function Main(props) {
 
     return (
         <main>
-            <section id="data" className="data--container">
-                <div className="aurora--map--container">
+            <section id="data" className="data-container">
+                <div className="aurora-map-container">
                     <img 
                         src={latitude < 0 ? "https://services.swpc.noaa.gov/images/animations/ovation/south/latest.jpg" : "https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg"}  
                         alt="" 
-                        className="aurora--map" 
+                        className="aurora-map" 
                     />
                 </div>
                 <Data 
