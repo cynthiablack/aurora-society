@@ -5,7 +5,7 @@ function PercentageData(props) {
     const percentage = props.value;
 
     return (
-        <div className="data-contents">
+        <div className={props.lightMode ? "data-contents light" : "data-contents"}>
             <CircularProgressbar
                 value={percentage}
                 text={`${percentage}%`}

@@ -93,10 +93,16 @@ export default function App() {
       )
    }, [locationData.latitude])
 
+   // Theme Toggling
+   const [lightMode, setLightMode] = React.useState(true)
+   function toggleTheme(){
+    setLightMode(prevMode => !prevMode)
+  }
+
     // component body
     return (
       <>
-        <header className="header-grid">
+        <header className={lightMode ? "header-grid light" : "header-grid"}>
           <h2 className="header-title">{!locationData.postalCode ? 'Anchorage Aurora Society' : 'Forecast for ' + locationData.city.slice(0,1).toLocaleUpperCase() + locationData.city.slice(1) + ', ' +  locationData.state + ', ' + locationData.country}<br /></h2>
           <form className="header-form" onSubmit={handleSubmit}>
             <label htmlFor="postalCode" className="header-form-input-label">Enter location</label>
@@ -109,11 +115,24 @@ export default function App() {
               value={locationData.postalCode}
               className="header-form-input"
             />
-            <button className="header-form-button">Submit</button> 
+            <button className={lightMode ? "header-form-button light" : "header-form-button"}>Submit</button> 
             </div>
           </form>
+          <div className="toggler-container">
+            <div className="toggler">
+              <p className="toggler-light">Light</p>
+              <div
+                className="toggler-slider"
+                onClick={toggleTheme}
+              >
+                <div className="toggler-slider-circle"></div>
+              </div>
+              <p className="toggler-dark">Dark</p>
+            </div>
+          </div>
         </header>
         <Main 
+          lightMode={lightMode}
           city={locationData.city}
           state={locationData.state}
           country={locationData.country}
