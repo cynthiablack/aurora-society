@@ -13,9 +13,9 @@ export default function Main(props) {
     const sunsetHour = +props.sunset.slice(0,2) + 12
 
     return (
-        <main>
+        <main className={props.lightMode ? "light" : ""}>
             <section id="data" className="data-container">
-                <div className="aurora-map-container">
+                <div className={props.lightMode ? "aurora-map-container light" : "aurora-map-container"}>
                     <img 
                         src={latitude < 0 ? "https://services.swpc.noaa.gov/images/animations/ovation/south/latest.jpg" : "https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg"}  
                         alt="" 
@@ -28,18 +28,21 @@ export default function Main(props) {
                     value={props.kp}
                     maxValue={9}
                     color="CircularProgressbar-pink"
+                    lightMode={props.lightMode}
                 />
                 <PercentageData
                     title="Cloud Cover"
                     additionalData={`and ${props.condition}`}
                     value={props.cloud}
                     color="CircularProgressbar"
+                    lightMode={props.lightMode}
                 />
                 <PercentageData 
                     title="Moonlight"
                     value={`${props.moon_illumination}`}
                     additionalData={props.moon_phase}
                     color="CircularProgressbar-orange"
+                    lightMode={props.lightMode}
                 />
                 <Data 
                     title={+sunsetHour > +currentHour ? 'Sunset In' : 'Sunrise At'}
@@ -47,6 +50,7 @@ export default function Main(props) {
                     value={`${+sunsetHour > +currentHour ? +sunsetHour - +currentHour : (24 - +currentHour) + +sunriseHour} hrs`}
                     maxValue={+sunsetHour > +currentHour ? (+sunsetHour - +sunriseHour) : (24 - +sunsetHour) + +sunriseHour}
                     color="CircularProgressbar-purple"
+                    lightMode={props.lightMode}
                 />
             </section>
         </main>

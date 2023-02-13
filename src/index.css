@@ -1,7 +1,11 @@
 /** body styles **/
   main {
-    margin: 4%;
-    text-align: center;
+    background-color: #202542; 
+  }
+
+  main.light {
+    background-color: #ffffff;
+    color: #202542;
   }
 
   h2 {
@@ -26,6 +30,10 @@
     min-height: 6vh;
     width: 100%;
     background-color: #3b476d;
+  }
+
+  header.light {
+    background : linear-gradient(45deg, rgba(140, 124, 224, 1) 7.1%, rgba(211, 77, 145, 1) 100%);
   }
 
   .header-grid {
@@ -70,6 +78,13 @@
     text-transform: uppercase;
   }
 
+  button.light {
+    background-color: #f5f5f5;
+    border-color: #0d0f1b;
+    color: rgb(211, 77, 145, 1);
+    box-shadow : 3px 5px 7px rgba(34, 33, 53, 0.35);
+  }
+
   .header-title {
     font-size: 1rem;
     text-align: left;
@@ -106,8 +121,67 @@
   }
 
 
+/** toggle theme **/
+  .toggler-container {
+    grid-column-start: -1;
+    position: relative;
+    top: -2.5vh;
+  }
+
+  .toggler {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .toggler p {
+    font-size: 0.625rem;
+    font-weight: 600;
+  }
+
+  .toggler-slider {
+    box-sizing: content-box;
+    width: 25px;
+    height: 13px;
+    margin-inline: 7px;
+
+    background-color: #D5D4D8;
+    border: 1px solid black;
+    border-radius: 2rem;
+    cursor: pointer;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  header.light .toggler-slider {
+    background-color: #3b476d;
+    justify-content: flex-start;
+  }
+
+  header.dark .toggler-slider {
+    border-color: white;
+    background-color: #F5F5F5;
+  }
+
+  .toggler-slider-circle {
+    height: 13px;
+    width: 13px;
+    background-color: #0d0f1b;
+    border: #D5D4D8 solid 0.5px;
+    border-radius: 50%;
+  }
+
+  header.light .toggler-slider-circle {
+    background-color: white;
+  }
+
+
 /** data display **/
   .data-container {
+    padding: 4%;
     display: grid;
     gap: 0.75rem;
     grid-template-columns: repeat(4, 1fr);
@@ -123,11 +197,18 @@
     grid-column: span 4;
   }
 
+  .aurora-map-container.light,
+  .data-contents.light {
+    background:  #ffffff;
+    box-shadow:  none;
+  }
+
   .aurora-map {
     border-radius: 50px;
     margin: auto 0;
     width: 75%;
   }
+
 
   .data-contents {
     margin-top: 2vh;
@@ -135,6 +216,10 @@
 
     display: flex;
     align-items: center;
+  }
+
+  .data-contents.light {
+    border: rgb(140, 124, 224) 4px solid;
   }
 
   .data-text {
@@ -150,6 +235,21 @@
     p {
       font-size: 2.25rem;
     } 
+
+    .toggler-container {
+      grid-column-start: -1;
+      position: inherit;
+      padding-left: 3.5vw;
+      padding-top: 0.5vh;
+    } 
+
+    .toggler {
+      justify-content: flex-start;
+    }
+
+    .toggler p {
+      font-size: 1rem;
+    }
   }
   @media screen and (min-width: 1000px) {
   .aurora-map-container,
@@ -170,3 +270,64 @@
     font-size: 1.75rem;
   } 
 } 
+
+/*
+ * react-circular-progressbar styles
+ */
+
+ .CircularProgressbar {
+  /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   */
+  width: 30%;
+  /*
+   * This fixes a centering issue with CircularProgressbarWithChildren:
+   * https://github.com/kevinsqi/react-circular-progressbar/issues/94
+   */
+  vertical-align: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #01E0FF; 
+  stroke-linecap: round;
+}
+
+.data-contents.light > .CircularProgressbar .CircularProgressbar-path {
+  stroke: rgb(211, 77, 145); 
+  stroke-linecap: round;
+}
+
+/* Path Colors */
+.CircularProgressbar.CircularProgressbar-orange .CircularProgressbar-path {
+  stroke: #ff9200;
+}
+
+.CircularProgressbar.CircularProgressbar-purple .CircularProgressbar-path {
+  stroke: #6B33D2;
+}
+
+.CircularProgressbar.CircularProgressbar-pink .CircularProgressbar-path {
+  stroke: #FF0ACE; 
+ } 
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #ffff;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
+}
+
+.data-contents.light > .CircularProgressbar .CircularProgressbar-trail {
+  stroke: #e0e0e0;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #ffff;
+  font-size: 20px;
+   dominant-baseline: middle; 
+  text-anchor: middle;
+}
+
+.data-contents.light > .CircularProgressbar .CircularProgressbar-text {
+  fill: #202542;
+}

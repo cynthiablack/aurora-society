@@ -5,7 +5,7 @@ function Data(props) {
     const value = props.value;
 
     return (
-        <div className="data-contents">
+        <div className={props.lightMode ? "data-contents light" : "data-contents"}>
             <CircularProgressbar
                 value={value}
                 maxValue={props.maxValue}
