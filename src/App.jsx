@@ -94,7 +94,7 @@ export default function App() {
    }, [locationData.latitude])
 
    // Theme Toggling
-   const [lightMode, setLightMode] = React.useState(true)
+   const [lightMode, setLightMode] = React.useState(false)
    function toggleTheme(){
     setLightMode(prevMode => !prevMode)
   }
