@@ -3,12 +3,6 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 function Data(props) {
     const value = props.value;
-    const [isShown, setIsShown] = React.useState(false)
-    const handleClick = event => {
-        setIsShown(current => !current)
-        alert('data')
-    }
-
 
     return (
         <div className={props.lightMode ? "data-contents light" : "data-contents"}>
