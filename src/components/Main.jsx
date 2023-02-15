@@ -1,5 +1,6 @@
 import React from "react"
 import Data from "./Data"
+import KeyData from "./KeyData"
 import PercentageData from "./PercentageData"
 
 export default function Main(props) {
@@ -12,6 +13,12 @@ export default function Main(props) {
     const sunriseHour = +props.sunrise.slice(0,2)
     const sunsetHour = +props.sunset.slice(0,2) + 12
 
+    const [isShown, setIsShown] = React.useState(false)
+    const handleClick = event => {
+        setIsShown(current => !current)
+        alert('cheese')
+    }
+
     return (
         <main className={props.lightMode ? "light" : ""}>
             <section id="data" className="data-container">
@@ -22,7 +29,7 @@ export default function Main(props) {
                         className="aurora-map" 
                     />
                 </div>
-                <Data 
+                <KeyData 
                     title="KP Index"
                     additionalData="out of 9"
                     value={props.kp}

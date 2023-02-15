@@ -226,6 +226,45 @@
     margin: 0 auto;
   }
 
+  .show-key {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    margin-top: 2vh;
+    padding: 4%;
+
+    border-radius: 12px;
+    background-color: #414d88;
+    box-shadow:  20px 20px 15px #0f111e,
+             -10px -10px 15px #313966;
+  }
+
+  .show-key.light {
+    color: #202542;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    margin-top: 2vh;
+    padding: 4%;
+
+    border-radius: 12px;
+    border: rgba(211, 77, 145, 1) 2px solid;
+  }
+
+  /* table */
+  
+
+  /* modal */
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85vw;
+  }
+
   @media screen and (min-width: 700px) {
     h3 {
       font-size: 3rem;
