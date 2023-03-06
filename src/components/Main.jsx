@@ -13,12 +13,6 @@ export default function Main(props) {
     const sunriseHour = +props.sunrise.slice(0,2)
     const sunsetHour = +props.sunset.slice(0,2) + 12
 
-    const [isShown, setIsShown] = React.useState(false)
-    const handleClick = event => {
-        setIsShown(current => !current)
-        alert('cheese')
-    }
-
     return (
         <main className={props.lightMode ? "light" : ""}>
             <section id="data" className="data-container">
@@ -36,6 +30,7 @@ export default function Main(props) {
                     maxValue={9}
                     color="CircularProgressbar-pink"
                     lightMode={props.lightMode}
+                    alert="KP index measures geomagnetic disturbance caused by solar wind.  As the KP Index increases above 4, aurora become more likely at latitudes below 60."
                 />
                 <PercentageData
                     title="Cloud Cover"
